@@ -2,19 +2,26 @@
 const items = ref([
     {
         title: "Overview",
-        path: "/"
+        path: "/",
+        icon: "material-symbols:dashboard-outline"
+
     }, {
         title: "Transactions",
-        path: "/transaction"
+        path: "/transaction",
+        icon: "grommet-icons:transaction"
     }, {
         title: "Account",
-        path: "/account"
+        path: "/account",
+        icon: "carbon:account"
     }, {
         title: "Contact",
-        path: "/contact"
+        path: "/contact",
+        icon: "material-symbols:account-box-outline"
+
     }, {
         title: "Settings",
-        path: "/settings"
+        path: "/settings",
+        icon: "material-symbols:settings"
     },
 ])
 </script>
@@ -33,6 +40,7 @@ const items = ref([
         <div class="px-6 grow">
             <div class="grid gap-2">
                 <div v-for="(item, index) in items" :key="index" class="flex items-center gap-2 px-2 py-1 transition rounded cursor-pointer hover:bg-neutral-100">
+                    <Icon size="20" :name="item.icon"/>
                     <span>{{ item.title }}</span>
                 </div>
             </div>
