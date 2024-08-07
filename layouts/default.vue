@@ -1,0 +1,18 @@
+<script setup lang="ts">
+
+</script>
+
+<template>
+    <div class="flex items-start">
+        <div>
+            <Sidebar />
+         
+        </div>
+
+
+        <div>
+            <slot />
+        </div>
+
+    </div>
+</template>

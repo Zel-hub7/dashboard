@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <Button>Click Me</Button>
+        main page
     </div>
 
 </template>
