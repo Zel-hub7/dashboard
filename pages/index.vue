@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 const loading = ref(false);
 const list = [
@@ -20,6 +19,7 @@ const list = [
         component: "<div>Year</div>"
     }
 ]
+console.log(list[0].component)
 </script>
 
 <template>
@@ -31,7 +31,7 @@ const list = [
                 </p>
                 <h1>Dashboard</h1>
 
-                <TabsToday />
+               
             </div>
 
             <div class="w-[120px] h-[36px] bg-neutral-200"></div>
@@ -40,22 +40,22 @@ const list = [
 
         <main class="grid gap-2">
 
-        
-                <Tabs default-value="Today" class="w-[400px]" >
-                    <TabsList>
-                        <TabsTrigger v-for="item, index in list" :key="index" :value="item.title">
-                            {{ item.title }}
-                        </TabsTrigger>
-                    </TabsList>
-                    <TabsContent v-for="item, index in list" :key="index" :value="item.title">
-                        {{ item.component }}
-                    </TabsContent>
 
-                
-                
+            <Tabs default-value="Today" class="w-[400px]">
+                <TabsList>
+                    <TabsTrigger v-for="item, index in list" :key="index" :value="item.title">
+                        {{ item.title }}
+                    </TabsTrigger>
+                </TabsList>
+                <TabsContent v-for="(item, index) in list" :key="index" :value="item.title">
+                    <component :is="item.component" />
+                </TabsContent>
 
-                </Tabs>
-           
+
+
+
+            </Tabs>
+
             <!-- <div class="flex items-center gap-3">
                <div v-for='(item, index) in 3' :key="index" class="w-[120px] h-[36px] bg-neutral-200">
 
