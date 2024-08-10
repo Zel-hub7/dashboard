@@ -3,14 +3,14 @@
 </script>
 
 <template>
-    <div class="grid items-start">
+    <div class="flex flex-col lg:flex-row">
         <div>
             <Sidebar />
          
         </div>
 
 
-        <div>
+        <div class="p-4">
             <slot />
         </div>
 
