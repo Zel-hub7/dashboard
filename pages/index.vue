@@ -4,25 +4,37 @@
 
 <template>
     <div class="grid gap-8 h-screen">
-        <header>
-            <p>Hi Welcomeback Babi
-            </p>
-           <h1>Dashboard</h1>
-    
+        <header class="flex items-start justify-between">
+
+            <div class="grow">
+                <p>Hi Welcomeback Babi
+                </p>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="w-[120px] h-[36px] bg-neutral-200"></div>
+
         </header>
 
-        <main>
-            <div>
-                Tabs: Today This week This month
+        <main class="grid gap-2">
+            <div class="flex items-center gap-3">
+               <div v-for='(item, index) in 3' :key="index" class="w-[120px] h-[36px] bg-neutral-200">
+
+               </div>
             </div>
-            
+
             <section>
-               Chart
+                <div class="w-full h-[360px] bg-neutral-200"></div>
             </section>
         </main>
 
         <footer>
-           3 different cards
+         <div class="flex items-center gap-3">
+            <div v-for="(item, index) in 3" :key="index" class="w-full h-[260px] bg-neutral-200">
+
+            </div>
+
+         </div>
         </footer>
 
 
