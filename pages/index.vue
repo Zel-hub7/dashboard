@@ -1,5 +1,25 @@
 <script setup lang="ts">
+
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+const loading = ref(false);
+const list = [
+    {
+        title: "Today",
+        component: resolveComponent("TabsToday")
+
+    }, {
+        title: "Week",
+        component: '<div>Week</div>'
+    },
+    {
+        title: "Month",
+        component: "<div>Month</div>"
+    }, {
+        title: "Year",
+        component: "<div>Year</div>"
+    }
+]
 </script>
 
 <template>
@@ -10,6 +30,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
                 <p>Hi Welcomeback Babi
                 </p>
                 <h1>Dashboard</h1>
+
+                <TabsToday />
             </div>
 
             <div class="w-[120px] h-[36px] bg-neutral-200"></div>
@@ -18,36 +40,22 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
         <main class="grid gap-2">
 
-            <template>
-                <Tabs default-value="account" class="w-[400px]">
+        
+                <Tabs default-value="Today" class="w-[400px]" >
                     <TabsList>
-                        <TabsTrigger value="today">
-                            Today
-                        </TabsTrigger>
-                        <TabsTrigger value="week">
-                            This Week
-                        </TabsTrigger>
-                        <TabsTrigger value="month">
-                            This month
-                        </TabsTrigger>
-                        <TabsTrigger value="year">
-                            This year
+                        <TabsTrigger v-for="item, index in list" :key="index" :value="item.title">
+                            {{ item.title }}
                         </TabsTrigger>
                     </TabsList>
-                    <TabsContent value="today">
-                        This is today
+                    <TabsContent v-for="item, index in list" :key="index" :value="item.title">
+                        {{ item.component }}
                     </TabsContent>
-                    <TabsContent value="week">
-                        This Week
-                    </TabsContent>
-                   <TabsContent value="month">
-                        This Month
-                    </TabsContent>
-                    <TabsContent value="year">
-                        This year
-                    </TabsContent>
+
+                
+                
+
                 </Tabs>
-            </template>
+           
             <!-- <div class="flex items-center gap-3">
                <div v-for='(item, index) in 3' :key="index" class="w-[120px] h-[36px] bg-neutral-200">
 
